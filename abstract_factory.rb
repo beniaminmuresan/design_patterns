@@ -1,4 +1,7 @@
-# Abstract Factory is a creational design pattern that lets you produce families of related objects without specifying their concrete classes.
+# frozen_string_literal: true
+
+# Abstract Factory is a creational design pattern that lets you produce families of related objects
+# without specifying their concrete classes.
 
 class FurnitureFactory
   def create_product_a
@@ -88,13 +91,13 @@ def client_code(factory)
   puts product_b.another_useful_function_b(product_a).to_s
 end
 
-puts "---------------------------------------------------------------------------"
+puts '---------------------------------------------------------------------------'
 
 puts 'Client: Testing client code with the first factory type:'
 client_code(ChairFactory.new)
 
-puts "---------------------------------------------------------------------------"
+puts '---------------------------------------------------------------------------'
 puts 'Client: Testing the same client code with the second factory type:'
 client_code(TableFactory.new)
 
-puts "---------------------------------------------------------------------------"
+puts '---------------------------------------------------------------------------'
