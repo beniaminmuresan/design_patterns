@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class User
   attr_reader :args
 
   def initialize(args)
     @args = args
   end
-  
+
   def talk
     'U can\'t touch me'
   end
@@ -24,16 +26,17 @@ end
 
 class Factory
   def self.build(user_type, args)
-    if user_type == :nice
+    case user_type
+    when :nice
       NiceGuy.new(args)
-    elsif user_type == :bad
+    when :bad
       BadGuy.new(args)
     end
   end
 end
 
-nice_guy = Factory.build(:nice, {first_nice_word: 'beautiful', second_nice_word: 'wonderful'})
-bad_guy = Factory.build(:bad, {first_bad_word: 'ugly'})
+nice_guy = Factory.build(:nice, { first_nice_word: 'beautiful', second_nice_word: 'wonderful' })
+bad_guy = Factory.build(:bad, { first_bad_word: 'ugly' })
 
 nice_guy.talk
 bad_guy.talk
